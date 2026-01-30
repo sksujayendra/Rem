@@ -57,12 +57,12 @@ def open_add_window():
 def delete_selected():
         selected = tree.selection()
         if not selected:
-            messagebox.showwarning("NO selection", "select a reminder nigga")
+            messagebox.showwarning("NO selection", "please select a reminder to delete")
             return
         index = tree.index(selected[0])
         reminder_id = reminder_ids[index]
         
-        confirm = messagebox.askyesno("confirm delete", "you sure you finished it nigga?")
+        confirm = messagebox.askyesno("confirm delete", "are you sure you want to delete this reminder?")
 
         if confirm:
             delete_reminder(reminder_id)
@@ -72,7 +72,7 @@ def delete_selected():
 
 root.config(bg="#4863A0")
 
-tk.Label(root, text="MY REMINDERS", font=("TkDefaultFont", 20), bg="#4863A0").pack(pady=10)
+tk.Label(root, text="YOUR REMINDERS", font=("TkDefaultFont", 20), bg="#4863A0").pack(pady=10)
 tk.Label(root, text="its now or never!!!", font=("italic", 15), bg="#4863A0", fg="white").pack(pady=10)
 
 columns = ("title", "date", "time")
