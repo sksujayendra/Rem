@@ -1,8 +1,21 @@
 import sqlite3
-
+import os
+import sys
+from time import time
 
 def connect_db():
-    return sqlite3.connect("rem.db")
+    # Get AppData directory
+    appdata = os.environ.get("APPDATA")
+
+    app_dir = os.path.join(appdata, "Rem")
+
+    # Ensure directory exists
+    os.makedirs(app_dir, exist_ok=True)
+
+    # Database path
+    db_path = os.path.join(app_dir, "rem.db")
+
+    return sqlite3.connect(db_path)
 
 def create_table():
     conn = connect_db()
@@ -35,6 +48,7 @@ def get_all_reminders():
     rows = cursor.fetchall()
     conn.close()
     return rows
+
 def delete_reminder(reminder_id):
     conn = connect_db()
     cursor = conn.cursor()

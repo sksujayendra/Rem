@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import Button, messagebox
+from tkinter import messagebox
 import threading 
 from tkinter import ttk
 from database import create_table, add_reminder, get_all_reminders, delete_reminder

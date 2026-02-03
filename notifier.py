@@ -18,4 +18,5 @@ def check_reminders():
         
         conn.close()
         time.sleep(60)
+
         
